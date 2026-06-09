@@ -37,6 +37,10 @@
                     Expertise
                     <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
                 </button>
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="guestbook">
+                    Guestbook
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
                 <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="contact">
                     Contact
                     <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
@@ -56,6 +60,7 @@
             <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="about">About</button>
             <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="projects">Projects</button>
             <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="expertise">Expertise</button>
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="guestbook">Guestbook</button>
             <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="contact">Contact</button>
         </div>
     </header>
@@ -234,6 +239,59 @@
             </div>
         </section>
 
+        <!-- Guestbook 섹션 -->
+        <section id="guestbook" class="py-24 md:py-32 bg-stone-50 border-b border-stone-200">
+            <div class="container mx-auto px-6 md:px-12 max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-xs font-light tracking-widest text-stone-400 uppercase mb-4">Guest Messages</h2>
+                    <h3 class="text-3xl md:text-4xl font-light text-stone-900">방명록</h3>
+                    <div class="w-12 h-[1px] bg-stone-300 mx-auto mt-8"></div>
+                </div>
+
+                <!-- 방명록 작성 폼 -->
+                <div class="border border-stone-200 bg-white p-6 md:p-8 mb-12">
+                    <form id="guestbook-form" class="space-y-6" onsubmit="event.preventDefault();">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" id="gb-name" class="w-full border-b border-stone-200 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent font-light text-sm" placeholder="이름" required>
+                            </div>
+                            <div>
+                                <input type="password" id="gb-password" class="w-full border-b border-stone-200 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent font-light text-sm" placeholder="비밀번호 (선택)">
+                            </div>
+                        </div>
+                        <div>
+                            <textarea id="gb-message" rows="3" class="w-full border-b border-stone-200 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent resize-none font-light text-sm" placeholder="여기에 메시지를 남겨주세요." required></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="border border-stone-900 text-stone-900 bg-transparent px-6 py-2 text-xs font-light tracking-wider uppercase hover:bg-stone-900 hover:text-white transition-colors">
+                                남기기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 방명록 목록 -->
+                <div id="guestbook-list" class="space-y-6">
+                    <!-- 샘플 데이터 1 -->
+                    <div class="border-b border-stone-200 pb-6">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <span class="font-normal text-stone-900">건축학도</span>
+                            <span class="text-xs font-light text-stone-400">2026. 06. 08</span>
+                        </div>
+                        <p class="text-stone-500 font-light text-sm">포트폴리오 너무 멋집니다! 특히 선형적인 디자인이 인상 깊네요. 항상 응원하겠습니다.</p>
+                    </div>
+                    <!-- 샘플 데이터 2 -->
+                    <div class="border-b border-stone-200 pb-6">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <span class="font-normal text-stone-900">방문자</span>
+                            <span class="text-xs font-light text-stone-400">2026. 06. 07</span>
+                        </div>
+                        <p class="text-stone-500 font-light text-sm">작품 잘 보고 갑니다. 도심 속 오아시스 프로젝트가 기대됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact 섹션 -->
         <section id="contact" class="py-24 md:py-32 bg-white">
             <div class="container mx-auto px-6 md:px-12 max-w-6xl">
@@ -370,6 +428,43 @@
                 }
             });
         });
+
+        // 6. 방명록 등록 로직 (클라이언트 사이드 임시 구현)
+        const guestbookForm = document.getElementById('guestbook-form');
+        const guestbookList = document.getElementById('guestbook-list');
+
+        if (guestbookForm) {
+            guestbookForm.addEventListener('submit', function() {
+                const nameInput = document.getElementById('gb-name');
+                const messageInput = document.getElementById('gb-message');
+                
+                const name = nameInput.value;
+                const message = messageInput.value;
+                
+                if(!name || !message) return;
+                
+                // 오늘 날짜 포맷팅
+                const today = new Date();
+                const dateString = `${today.getFullYear()}. ${String(today.getMonth() + 1).padStart(2, '0')}. ${String(today.getDate()).padStart(2, '0')}`;
+                
+                // 새 방명록 요소 생성
+                const newEntry = document.createElement('div');
+                newEntry.className = 'border-b border-stone-200 pb-6';
+                newEntry.innerHTML = `
+                    <div class="flex justify-between items-baseline mb-2">
+                        <span class="font-normal text-stone-900">${name.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
+                        <span class="text-xs font-light text-stone-400">${dateString}</span>
+                    </div>
+                    <p class="text-stone-500 font-light text-sm">${message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, '<br>')}</p>
+                `;
+                
+                // 목록 맨 위에 추가
+                guestbookList.prepend(newEntry);
+                
+                // 폼 초기화
+                guestbookForm.reset();
+            });
+        }
     </script>
 </body>
 </html>
