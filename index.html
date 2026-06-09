@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이도윤 - 건축 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-stone-300 selection:text-black">
+
+    <!-- 네비게이션 헤더 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <button class="scroll-link text-2xl font-bold tracking-tighter uppercase text-left" data-target="home">
+                DOYOON LEE
+                <span class="block text-xs font-normal tracking-widest text-stone-500 mt-1">Architecture Portfolio</span>
+            </button>
+
+            <!-- 데스크탑 메뉴 -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="home">
+                    Home
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="about">
+                    About
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="projects">
+                    Projects
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="expertise">
+                    Expertise
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                <button class="scroll-link hover:text-stone-500 transition-colors uppercase relative group" data-target="contact">
+                    Contact
+                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+            </nav>
+
+            <!-- 모바일 메뉴 버튼 -->
+            <button id="menu-btn" class="md:hidden p-2 text-stone-900">
+                <i id="icon-menu" data-lucide="menu" class="w-6 h-6"></i>
+                <i id="icon-x" data-lucide="x" class="w-6 h-6 hidden"></i>
+            </button>
+        </div>
+
+        <!-- 모바일 메뉴 (기본적으로 숨김) -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 flex-col items-center space-y-4 md:hidden border-t border-stone-100">
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="home">Home</button>
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="about">About</button>
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="projects">Projects</button>
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="expertise">Expertise</button>
+            <button class="scroll-link text-lg font-medium hover:text-stone-500 w-full text-center py-2 uppercase" data-target="contact">Contact</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 섹션 -->
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <!-- 배경 이미지 -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Architectural modern background" class="w-full h-full object-cover opacity-90">
+                <div class="absolute inset-0 bg-stone-900/30"></div>
+            </div>
+
+            <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-20">
+                <p class="text-sm md:text-base font-light tracking-[0.3em] uppercase mb-6 drop-shadow-md">
+                    Architectural Designer
+                </p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-lg">
+                    공간에 숨결을 불어넣다.
+                </h1>
+                <p class="text-lg md:text-xl font-light text-stone-200 mb-10 max-w-2xl mx-auto drop-shadow-md">
+                    사람과 환경을 잇는 지속 가능한 건축을 지향합니다.
+                </p>
+                <button class="scroll-link bg-white text-stone-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-stone-200 transition-colors flex items-center mx-auto" data-target="projects">
+                    View Projects <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- About 섹션 -->
+        <section id="about" class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" alt="Architecture sketches" class="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-xs font-bold tracking-widest text-stone-400 uppercase mb-4">About Architect</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-8 text-stone-900">이도윤</h3>
+                    <div class="w-12 h-1 bg-stone-900 mb-8"></div>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-lg">
+                        건축은 단순히 건물을 세우는 것이 아니라, 사람들의 삶을 담는 그릇을 빚는 과정입니다. 자연과의 조화, 공간의 실용성, 그리고 시간이 지나도 변치 않는 미학을 추구하며 지속 가능한 건축 환경을 만들어갑니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 text-sm text-stone-500 uppercase tracking-wider">
+                        <div>
+                            <p class="font-bold text-stone-900 block mb-1">Education</p>
+                            <p>OO대학교 건축학과 학사</p>
+                            <p>XX대학교 건축대학원 석사</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-stone-900 block mb-1">Experience</p>
+                            <p>A 건축사사무소 (2018-2021)</p>
+                            <p>B 디자인 스튜디오 (2021-Present)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects 섹션 -->
+        <section id="projects" class="py-24 md:py-32 bg-stone-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-xs font-bold tracking-widest text-stone-400 uppercase mb-4">Selected Works</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-stone-900">Featured Projects</h3>
+                    </div>
+                    <p class="text-stone-500 hidden md:block max-w-md text-right text-sm">
+                        주거부터 상업 시설까지, 다양한 스케일과 컨텍스트에 대응하는 건축적 해결책을 제시합니다.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Project 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden bg-stone-200 aspect-[4/3] mb-6">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80" alt="빛의 갤러리" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span class="text-white border border-white px-6 py-2 uppercase tracking-widest text-sm">View Detail</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-bold text-stone-900 mb-2">빛의 갤러리</h4>
+                                <p class="text-sm text-stone-500">문화시설 / 인테리어</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-400 border border-stone-300 px-2 py-1">2024</span>
+                        </div>
+                        <p class="text-stone-600 mt-4 text-sm line-clamp-2">
+                            자연광을 최대한 끌어들여 시간의 흐름에 따라 내부 공간의 느낌이 변화하도록 설계한 현대 미술 갤러리입니다.
+                        </p>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden bg-stone-200 aspect-[4/3] mb-6">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80" alt="자연과 호흡하는 주택" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span class="text-white border border-white px-6 py-2 uppercase tracking-widest text-sm">View Detail</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-bold text-stone-900 mb-2">자연과 호흡하는 주택</h4>
+                                <p class="text-sm text-stone-500">주거공간</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-400 border border-stone-300 px-2 py-1">2023</span>
+                        </div>
+                        <p class="text-stone-600 mt-4 text-sm line-clamp-2">
+                            주변 숲의 경관을 해치지 않고 대지의 단차를 활용하여 설계된 친환경 단독주택입니다.
+                        </p>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden bg-stone-200 aspect-[4/3] mb-6">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" alt="도심 속 오아시스" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span class="text-white border border-white px-6 py-2 uppercase tracking-widest text-sm">View Detail</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-bold text-stone-900 mb-2">도심 속 오아시스</h4>
+                                <p class="text-sm text-stone-500">상업 및 업무 복합시설</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-400 border border-stone-300 px-2 py-1">2025 (예정)</span>
+                        </div>
+                        <p class="text-stone-600 mt-4 text-sm line-clamp-2">
+                            회색빛 도심 속에 수직 정원과 개방형 중정을 배치하여 시민들에게 휴식처를 제공하는 복합 문화 상업 단지입니다.
+                        </p>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden bg-stone-200 aspect-[4/3] mb-6">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="미니멀리즘 오피스" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span class="text-white border border-white px-6 py-2 uppercase tracking-widest text-sm">View Detail</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-bold text-stone-900 mb-2">미니멀리즘 오피스</h4>
+                                <p class="text-sm text-stone-500">업무공간 / 리모델링</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-400 border border-stone-300 px-2 py-1">2022</span>
+                        </div>
+                        <p class="text-stone-600 mt-4 text-sm line-clamp-2">
+                            불필요한 장식을 배제하고 본질적인 업무에 집중할 수 있도록 동선과 공간 구획을 재구성한 오피스 리모델링 프로젝트입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise / Skills 섹션 -->
+        <section id="expertise" class="py-24 md:py-32 bg-stone-900 text-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-xs font-bold tracking-widest text-stone-400 uppercase mb-4">Areas of Practice</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold">Expertise & Skills</h3>
+                    <div class="w-12 h-1 bg-white mx-auto mt-8"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">01</span>
+                        <h4 class="text-lg font-medium">Concept Design & Feasibility Study</h4>
+                    </div>
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">02</span>
+                        <h4 class="text-lg font-medium">Architectural Planning & Detailed Design</h4>
+                    </div>
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">03</span>
+                        <h4 class="text-lg font-medium">3D Modeling (Rhino, SketchUp)</h4>
+                    </div>
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">04</span>
+                        <h4 class="text-lg font-medium">BIM (Revit)</h4>
+                    </div>
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">05</span>
+                        <h4 class="text-lg font-medium">Rendering & Visualization (V-Ray, Enscape)</h4>
+                    </div>
+                    <div class="border border-stone-700 p-8 hover:bg-stone-800 transition-colors">
+                        <span class="text-stone-500 font-mono text-sm mb-4 block">06</span>
+                        <h4 class="text-lg font-medium">Sustainable & Green Building Design</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact 섹션 -->
+        <section id="contact" class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-6 md:px-12 max-w-6xl">
+                <div class="flex flex-col md:flex-row gap-16">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-xs font-bold tracking-widest text-stone-400 uppercase mb-4">Get in touch</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-stone-900 mb-8">새로운 프로젝트를 <br>함께 이야기해 볼까요?</h3>
+                        <p class="text-stone-600 mb-12">
+                            건축 설계 의뢰, 협업 제안 또는 포트폴리오에 대한 문의가 있으시다면 언제든 연락 주시기 바랍니다.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center text-stone-600">
+                                <i data-lucide="mail" class="w-6 h-6 mr-4 text-stone-400"></i>
+                                <span>contact@doyoon-arch.com</span>
+                            </div>
+                            <div class="flex items-center text-stone-600">
+                                <i data-lucide="phone" class="w-6 h-6 mr-4 text-stone-400"></i>
+                                <span>+82 10-1234-5678</span>
+                            </div>
+                            <div class="flex items-center text-stone-600">
+                                <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-stone-400"></i>
+                                <span>서울특별시 강남구 테헤란로</span>
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-6 mt-12">
+                            <a href="#" class="text-stone-400 hover:text-stone-900 transition-colors">
+                                <i data-lucide="instagram" class="w-6 h-6"></i>
+                            </a>
+                            <a href="#" class="text-stone-400 hover:text-stone-900 transition-colors">
+                                <i data-lucide="linkedin" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 문의 폼 UI -->
+                    <div class="w-full md:w-1/2">
+                        <form class="space-y-6" onsubmit="event.preventDefault();">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-stone-700 mb-2">Name</label>
+                                    <input type="text" class="w-full border-b border-stone-300 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent" placeholder="홍길동">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-stone-700 mb-2">Email</label>
+                                    <input type="email" class="w-full border-b border-stone-300 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent" placeholder="example@email.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-stone-700 mb-2">Subject</label>
+                                <input type="text" class="w-full border-b border-stone-300 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent" placeholder="프로젝트 문의">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-stone-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full border-b border-stone-300 py-2 focus:outline-none focus:border-stone-900 transition-colors bg-transparent resize-none" placeholder="내용을 입력해주세요."></textarea>
+                            </div>
+                            <button type="submit" class="bg-stone-900 text-white px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-stone-800 transition-colors w-full md:w-auto">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-stone-950 text-stone-500 py-12 text-center text-sm border-t border-stone-800">
+        <div class="container mx-auto px-6">
+            <p class="tracking-widest uppercase mb-4 text-stone-400 font-bold">DOYOON LEE Architecture</p>
+            <p id="copyright-year"></p>
+        </div>
+    </footer>
+
+    <!-- 자바스크립트 기능 (스크롤 애니메이션, 메뉴 토글 등) -->
+    <script>
+        // 1. Lucide 아이콘 초기화 (HTML 내의 i 태그를 SVG로 변환)
+        lucide.createIcons();
+
+        // 2. 현재 연도 자동 입력
+        document.getElementById('copyright-year').innerHTML = `&copy; ${new Date().getFullYear()} 이도윤. All rights reserved.`;
+
+        // 3. 스크롤 시 헤더 디자인 변경 로직
+        const header = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent', 'py-6');
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+            } else {
+                header.classList.add('bg-transparent', 'py-6');
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+            }
+        });
+
+        // 4. 모바일 메뉴 열기/닫기 로직
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconX = document.getElementById('icon-x');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                iconMenu.classList.add('hidden');
+                iconX.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                iconMenu.classList.remove('hidden');
+                iconX.classList.add('hidden');
+            }
+        }
+        
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // 5. 부드러운 스크롤 이동 로직 (네비게이션 클릭 시)
+        const scrollLinks = document.querySelectorAll('.scroll-link');
+        scrollLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 모바일 환경에서 클릭 시 메뉴 닫기
+                    if (isMenuOpen) {
+                        toggleMenu();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
